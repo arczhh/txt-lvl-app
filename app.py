@@ -10,7 +10,6 @@ import math
 from sklearn.manifold import TSNE
 import numpy as np
 from gensim.models import KeyedVectors
-from asyncio.windows_events import NULL
 from datetime import datetime
 from re import I
 import pandas as pd
@@ -193,7 +192,7 @@ def etl(mess):
 
 
 app = Flask(__name__)
-app.debug = True
+# app.debug = True
 
 
 @app.route('/')
@@ -226,4 +225,4 @@ def result():
     return render_template("result.html", results=results, pos=(pos/len(results)*100), neg=(neg/len(results)*100) )
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="127.0.0.1", port=5000)
